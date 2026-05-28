@@ -88,7 +88,7 @@ Once both machines are running their launch scripts, the Visualizer container ex
 
 Open this link in your browser to observe the simulation in real time. The demo closely resembles the output in the [previous Learning Path, Deploy Open AD Kit containerized autonomous driving simulation on Arm Neoverse](/learning-paths/automotive/openadkit1_container/4_run_openadkit/). 
 
-![Animated visualization showing the OpenAD Kit simulation running across two distributed Arm-based instances, with the planning-control module on one node communicating over DDS with the simulator and visualizer on another node, demonstrating real-time autonomous driving scenario execution#center](split_aws_run.gif "Visualizer output from a distributed OpenAD Kit simulation showing ROS 2 modules running across two cloud instances using DDS communication.")
+![Animated capture showing terminal windows launching the planning-control and simulator-visualizer scripts on two Arm instances, followed by the browser visualizer connecting to the simulation. This confirms cross-instance ROS 2 communication through DDS.#center](split_aws_run.gif "Distributed OpenAD Kit launch with terminal logs and browser visualizer")
 
 You’ve now run the OpenAD Kit across two nodes with separated control and visualization roles. DDS enabled real-time, peer-to-peer communication between the ROS 2 nodes, supporting synchronized behavior across the planning and simulation components deployed on two separate instances.
 

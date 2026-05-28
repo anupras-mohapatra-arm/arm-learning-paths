@@ -31,7 +31,7 @@ This architecture brings several practical benefits:
 
 - **Support for Modular CI/CD Workflows**: with containerized separation, you can build, test, and deploy each module independently, which enables agile development and faster iteration cycles.
 
-![Diagram showing OpenAD Kit deployment split across two AWS instances, with simulation and visualization on one instance and planning-control on another, connected via DDS communication#center](aws_example.jpg "Split instance example in AWS")
+![Architecture diagram showing planning-control on one AWS Graviton-based instance and simulator plus visualization on a second Graviton-based instance. Private IP links carry DDS traffic between instances, and a public IP connects the local browser to the visualizer.#center](aws_example.jpg "OpenAD Kit split across two AWS Graviton instances")
 
 ## Configure networking for DDS communication
 
@@ -54,7 +54,7 @@ Within the EC2 Security Group settings:
 - Add an inbound rule that allows all traffic from the same Security Group by setting the source to the security group itself.
 - Outbound traffic is typically allowed by default and usually does not require changes.
 
-![Screenshot of AWS Security Group configuration showing inbound rule allowing all traffic from the same security group to enable DDS peer discovery between instances#center](security_group.jpg "AWS Security Group Setting")
+![AWS EC2 inbound rules screen showing an All traffic rule sourced from the same security group for DDS peer discovery. Separate rules expose VNC on port 6080 and SSH from the user's IP address.#center](security_group.jpg "AWS Security Group inbound rules for DDS communication")
 
 This configuration allows automatic discovery and peer-to-peer communication between DDS participants across the two instances.
 
