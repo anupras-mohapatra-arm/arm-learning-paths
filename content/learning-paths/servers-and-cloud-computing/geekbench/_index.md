@@ -13,9 +13,47 @@ learning_objectives:
 prerequisites:
 - An Arm computer running Linux. You can use a cloud instance, refer to [Get started with Arm-based cloud instances](/learning-paths/servers-and-cloud-computing/csp/).
 
+# START generated_summary_faq
+generated_summary_faq:
+  template_version: summary-faq-v3
+  generated_at: '2026-09-10T22:04:01Z'
+  generator: ai
+  ai_assisted: true
+  ai_review_required: true
+  model: gpt-5
+  prompt_template: summary-faq-v3
+  source_hash: d934fb4eb36f417737b72e5a66bf5f1b890018ba78b4c14b3538d32720a56511
+  summary_generated_at: '2026-09-10T22:04:01Z'
+  summary_source_hash: d934fb4eb36f417737b72e5a66bf5f1b890018ba78b4c14b3538d32720a56511
+  faq_generated_at: '2026-09-10T22:04:01Z'
+  faq_source_hash: d934fb4eb36f417737b72e5a66bf5f1b890018ba78b4c14b3538d32720a56511
+  summary: >-
+    You'll use Geekbench 7 to measure CPU performance on Arm Linux systems. You'll download the Linux on Arm build, run the benchmark, and record single-core and multi-core scores. Repeating the workflow across systems or instance types gives you comparable results for evaluating hardware options against a specific workload and choosing an appropriate configuration.
+  faqs:
+  - question: Which Geekbench 7 build should I download for an Arm Linux system?
+    answer: >-
+      Download the Linux on Arm preview build. 
+  - question: What result should I expect after running Geekbench?
+    answer: >-
+      A successful run reports a single-core score and a multi-core score. Use these values to
+      compare systems or configurations.
+  - question: What should I check if the run finishes without showing scores?
+    answer: >-
+      Confirm that you downloaded the Linux on Arm preview build from the Geekbench downloads
+      area. Then, re-run the same steps to capture the scores.
+  - question: How should I record results so I can compare hardware configurations later?
+    answer: >-
+      Note the single-core and multi-core scores together with the system or instance that you tested.
+      Keep the scores for each system in the same format so you can compare them directly.
+  - question: Should I focus on the single-core or multi-core score when choosing hardware?
+    answer: >-
+      Use the score that best matches how
+      your workload uses CPU resources.
+# END generated_summary_faq
+
 author: Jason Andrews
 
-generate_summary_faq: true
+generate_summary_faq: false
 rerun_summary: false
 rerun_faqs: false
 
@@ -54,4 +92,3 @@ weight: 1
 layout: learningpathall
 learning_path_main_page: 'yes'
 ---
-
