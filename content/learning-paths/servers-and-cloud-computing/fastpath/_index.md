@@ -48,11 +48,11 @@ generated_summary_faq:
     answer: >-
       The plan defines the SUT, the kernels to deploy, and the benchmark workloads to run. A provided
       helper script gathers the required information and generates a valid `plan.yaml`.
-  - question: What result should I expect after executing the Fastpath plan?
+  - question: How do I compare results between two kernels?
     answer: >-
-      Fastpath installs each kernel on the SUT one at a time, runs the configured benchmarks,
-      and collects results. You should see outputs that enable comparing performance across the
-      selected kernel versions.
+      Use Fastpath's `result show` command with the results directory, both `--swprofile` values,
+      and the `--relative` option. The output compares metrics such as the minimum, mean, maximum,
+      confidence interval, coefficient of variation, and sample count for each kernel.
 # END generated_summary_faq
 
 author: Geremy Cohen

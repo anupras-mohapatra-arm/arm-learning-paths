@@ -45,9 +45,9 @@ generated_summary_faq:
       the main branch.
   - question: How do I know the job executed on the Arm self-hosted runner?
     answer: >-
-      The workflow uses `runs-on: self-hosted`, so it targets the runner that you registered on the C4A
-      instance. Check the workflow logs to see the NGINX install and start steps complete on that
-      runner.
+      Treat `runs-on: self-hosted` as a match for any eligible self-hosted runner; it does not select
+      the C4A VM by architecture alone. Check the workflow logs and registered runner details to
+      confirm that the job ran on the C4A instance.
   - question: What should I check if the workflow is queued or NGINX was not installed?
     answer: >-
       Verify that the self-hosted runner is registered and running on your C4A instance. Confirm that

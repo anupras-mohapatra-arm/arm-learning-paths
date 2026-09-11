@@ -48,10 +48,11 @@ generated_summary_faq:
     answer: >-
       Run Sweet on each VM to execute the benchmarks and generate raw performance data. After
       both runs complete, use Benchstat to compare the results across the two systems.
-  - question: What result should I expect from Benchstat?
+  - question: Which metrics should I inspect in the Benchstat output?
     answer: >-
-      Benchstat outputs a statistical comparison of the benchmark data. It prints text by default
-      and can also produce CSV, which you can use for downstream analysis.
+      Inspect `sec/op` for execution time, `average-RSS-bytes` for average resident memory,
+      `peak-RSS-bytes` for maximum resident memory, and `peak-VM-bytes` for maximum virtual memory.
+      Lower values indicate less time or memory for these metrics.
 # END generated_summary_faq
 
 author: Geremy Cohen

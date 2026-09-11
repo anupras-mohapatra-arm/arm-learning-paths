@@ -31,11 +31,10 @@ generated_summary_faq:
   summary: >-
     You'll implement an exponential function with Arm SVE intrinsics, starting with range reduction and polynomial approximation. First, you'll select an approximation interval, choose a polynomial degree, and validate your result against a reference. Then, you'll use the SVE FEXPA instruction for hardware-assisted reconstruction, reducing the polynomial work while preserving accuracy for your performance-sensitive Neoverse code.
   faqs:
-  - question: How do I know my build environment supports SVE intrinsics?
+  - question: How do I compile the SVE example?
     answer: >-
-      Compile the example that includes `arm_sve.h` and SVE types. If the header is missing or intrinsics
-      are undefined, ensure you are building on one of the listed Arm cloud instances and that
-      `gcc` is installed.
+      Install `gcc`, then compile `exp_sve.c` with `gcc -O3 -march=armv8-a+sve exp_sve.c -o exp_sve -lm`.
+      Use an SVE-capable Arm processor to execute the SVE implementation.
   - question: Which floating-point precision am I building with in this example?
     answer: >-
       The provided implementation uses single-precision (float) coefficients. Adapting to half

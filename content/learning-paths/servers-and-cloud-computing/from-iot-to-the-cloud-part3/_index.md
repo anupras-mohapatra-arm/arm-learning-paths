@@ -49,9 +49,9 @@ generated_summary_faq:
       host the images that are referenced by your deployment.
   - question: What should I check if kubectl can't reach the cluster after connecting?
     answer: >-
-      Ensure that you ran `az aks get-credentials` in Cloud Shell with the correct resource group (`rg-arm64`)
-      and cluster name (`aks-people`). If the command completes without error, `kubectl` is configured
-      to talk to the cluster.
+      Confirm that you ran `az aks get-credentials` in Cloud Shell with the correct resource group (`rg-arm64`)
+      and cluster name (`aks-people`), then run `kubectl get nodes`. If the request fails, check the active
+      kubeconfig context and your access to the cluster before retrying.
 # END generated_summary_faq
 
 author: Dawid Borycki

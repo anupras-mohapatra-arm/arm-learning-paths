@@ -33,9 +33,10 @@ generated_summary_faq:
   summary: >-
     You'll provision an Azure Cobalt 100-based Arm64 VM, install Go on Ubuntu Pro, and validate the environment with a small web application. First, you'll compile and serve a styled HTML page, then use Go’s built-in benchmarks to measure latency and memory allocation. The workflow gives you baseline metrics for comparing Arm64 and x86_64 systems.
   faqs:
-  - question: Which VM sizes do I use for benchmark comparison?
+  - question: Which VM sizes are used for the Arm64 and x86-64 comparison?
     answer: >-
-      Use `D4ps_v6` from the `Dpsv6` series with Ubuntu Pro 24.04 LTS for the Arm benchmark.
+      Use `D4ps_v6` from the `Dpsv6` series for the Arm64 benchmark and `D4s_v6` for the x86-64
+      comparison, and use Ubuntu Pro 24.04 LTS for both benchmark environments.
   - question: How do I make the Go web server reachable over HTTP?
     answer: >-
       Allow HTTP traffic through Ubuntu's UFW firewall with `sudo ufw allow 80/tcp`, then enable

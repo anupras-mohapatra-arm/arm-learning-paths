@@ -36,19 +36,19 @@ generated_summary_faq:
   faqs:
   - question: How do I know the cluster has both amd64 and arm64 capacity before building images?
     answer: >-
-      List your GKE nodes and check the architecture labels to confirm both amd64 and arm64 node
-      pools are present and ready. Do this before starting any builds so each BuildKit pod can
-      run on the matching architecture.
+      For the native GKE Buildx workflow, list your GKE nodes and check the architecture labels to
+      confirm both amd64 and arm64 node pools are present and ready. You can then run each BuildKit
+      pod on the matching architecture. If you choose Cloud Build, you use its own runner with QEMU instead.
   - question: Which services need Dockerfile updates for multi-architecture builds?
     answer: >-
       Four services require small changes: `emailservice`, `recommendationservice`, `loadgenerator`,
       and `cartservice`. The edits ensure that the correct compiler headers and runtime libraries are
       included for each architecture.
-  - question: What result should I expect after running the multi-architecture builds?
+  - question: Which build workflow avoids QEMU emulation?
     answer: >-
-      Each service publishes image variants for amd64 and arm64 to Artifact Registry along with
-      a multi-architecture manifest. Builds run natively on the corresponding node pools using
-      BuildKit, so no QEMU emulation is needed.
+      Use the GKE-backed Buildx workflow. It runs separate BuildKit pods on the amd64 and arm64
+      node pools, so each platform builds natively. The alternative Cloud Build workflow enables
+      QEMU in its runner for cross-architecture builds.
   - question: How do I direct a deployment to Arm nodes and later switch from x86?
     answer: >-
       Use Kustomize overlays that select nodes by architecture and reference your Artifact Registry

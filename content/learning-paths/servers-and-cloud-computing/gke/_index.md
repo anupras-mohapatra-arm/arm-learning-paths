@@ -32,13 +32,12 @@ generated_summary_faq:
   faqs:
   - question: How do I know that my Terraform configuration targets Arm-based nodes?
     answer: >-
-      Check the node pool machine type in your Terraform files and choose an Arm-based option
-      supported by GKE, such as C4A or Tau T2A. Confirm the selection before applying
-      the configuration.
-  - question: What result should I expect when the deployment finishes?
+      Check the `machine_type` value in the `node_pools` block. Use `t2a-standard-1`, the Arm-based
+      Tau T2A machine type specified for this configuration, before applying it.
+  - question: Where do I set the project, region, and cluster name?
     answer: >-
-      Terraform reports successful creation and outputs cluster details. You can use `kubectl` to
-      reach the cluster and see nodes in the `Ready` state.
+      Set `gcp_project_id`, `gcp_region`, and `gcp_cluster_name` in `terraform.tfvars`. The
+      `providers.tf` and `main.tf` files read these values when Terraform creates the cluster.
   - question: What should I check if the apply step fails with project or permission errors?
     answer: >-
       Verify that the Google Cloud project exists and is specified in your Terraform configuration.
