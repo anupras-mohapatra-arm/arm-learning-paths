@@ -46,7 +46,7 @@ generated_summary_faq:
   - question: How do I point kubectl to the right cluster context?
     answer: >-
       Export `KUBECONFIG` to the generated `kubeconfig`, for example: `$PWD/example/gardener-local/kind/local/kubeconfig`.
-      After setting it, `kubectl` commands should connect to the intended cluster without authentication
+      After exporting, `kubectl` commands should connect to the intended cluster without authentication
       errors.
   - question: How do I know the clusters are healthy before deploying workloads?
     answer: >-

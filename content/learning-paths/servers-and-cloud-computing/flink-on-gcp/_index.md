@@ -36,23 +36,20 @@ generated_summary_faq:
   - question: Which C4A machine type should I use to match the steps?
     answer: >-
       Use the `c4a-standard-4` configuration (4 vCPUs, 16 GB memory) to keep your setup consistent with the examples.
-  - question: What operating system and package manager do the commands assume?
+  - question: What operating system and package manager should I use?
     answer: >-
-      The steps use a SUSE Arm64-based virtual machine with `zypper` as the package manager. You refresh
-      and update the system before installing required packages.
-  - question: Which Java version do I need for Flink on this virtual machine?
+      Use a SUSE Arm64-based virtual machine with `zypper` as the package manager.
+  - question: Which Java version do I need for Flink on the virtual machine?
     answer: >-
-      Install Java 17 (OpenJDK) and its development package using `zypper`. This provides the runtime
-      and toolchain needed to run and build Flink components.
+      Install Java 17 (OpenJDK) and its development package using `zypper`.
   - question: Where should I place the Flink distribution on the virtual machine?
     answer: >-
-      Download the official Flink distribution to `/opt`. This path is used as a standard location
-      for system-wide tools in the steps.
-  - question: How do I confirm the setup before running benchmarks?
+      Download the official Flink distribution to `/opt`.
+  - question: How do I verify that Flink is ready for benchmarking?
     answer: >-
-      Start Flink’s JobManager and TaskManager and run a baseline job. A successful job indicates
-      the installation, JVM, and basic cluster functionality are working. Ensure Maven is installed
-      before building jobs.
+      Run `jps` and confirm that `StandaloneSessionClusterEntrypoint` and `TaskManagerRunner` are
+      running. Open `http://<VM_IP>:8081` to load the Flink Dashboard, then ensure the WordCount
+      example runs successfully before starting the benchmarks.
 # END generated_summary_faq
 
 author: Pareena Verma

@@ -31,7 +31,7 @@ generated_summary_faq:
   faq_generated_at: '2026-09-10T21:56:23Z'
   faq_source_hash: a5c4bd873d7596fc2616e7a0f1d86f2a7bc3aa521e29c7f2bc7f033ca550cb9a
   summary: >-
-    You'll build and benchmark Linux kernels on Arm-based Amazon EC2 instances using `tuxmake` and Fastpath. First, you'll provision a build host, Fastpath host, and system under test, then compile kernels and create a YAML benchmark plan. Fastpath installs each kernel, runs the selected workloads, and collects results so you can compare kernel performance across versions.
+    You'll build and benchmark Linux kernels on Arm-based Amazon EC2 instances using `tuxmake` and Fastpath. First, you'll provision a build host, Fastpath host, and system under test, then compile kernels and create a YAML benchmark plan. Fastpath installs each kernel, runs the selected workloads, and collects results so that you can compare kernel performance across versions.
   faqs:
   - question: Which EC2 instance type should I use for the kernel build host?
     answer: >-
@@ -46,8 +46,8 @@ generated_summary_faq:
       when SSH access and required configuration are confirmed.
   - question: What does the Fastpath YAML plan include, and how is it created?
     answer: >-
-      The plan defines the SUT, the kernels to deploy, and the benchmark workloads to run. A provided
-      helper script gathers the required information and generates a valid `plan.yaml`.
+      The plan defines the SUT, the kernels to deploy, and the benchmark workloads to run. The
+      helper script `generate_plan.sh` gathers the required information and generates a valid `plan.yaml`.
   - question: How do I compare results between two kernels?
     answer: >-
       Use Fastpath's `result show` command with the results directory, both `--swprofile` values,

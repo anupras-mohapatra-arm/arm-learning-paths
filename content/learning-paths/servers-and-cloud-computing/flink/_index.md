@@ -40,18 +40,20 @@ generated_summary_faq:
       Run the scripts on the master node. Use paths such as
       `~/flink-benchmark/flink-1.17.2/bin/start-cluster.sh` and
       `~/flink-benchmark/nexmark-flink/bin/setup_cluster.sh`.
-  - question: How do I know that the Flink cluster started correctly before I run Nexmark?
+  - question: Which configuration values must point to the Flink JobManager?
     answer: >-
-      `start-cluster.sh` should complete without errors. Proceed to `setup_cluster.sh` only if the
-      start step finishes cleanly.
+      Set `jobmanager.rpc.address` in `flink-conf.yaml` and
+      `nexmark.metric.reporter.host` in `nexmark.yaml` to the JobManager address. You can use
+      the JobManager IP or the default `localhost:8081` when the components run on the same host.
   - question: What should I check about SSH before I run the scripts?
     answer: >-
       Ensure `sshd` is running because the Flink and Nexmark scripts use SSH to manage remote components.
       Start or enable the service before continuing.
-  - question: How do I choose which Nexmark queries to run?
+  - question: How can I run specific Nexmark queries?
     answer: >-
-      Use the `nexmark-flink` `run_query.sh` script to execute the benchmark. You can run additional
-      queries as supported by the script.
+      Pass a comma-separated query list to `run_query.sh`, such as
+      `bash ~/flink-benchmark/nexmark-flink/bin/run_query.sh q1,q2`. The script runs the selected
+      queries and reports their benchmark results.
 # END generated_summary_faq
 
 author: Ying Yu

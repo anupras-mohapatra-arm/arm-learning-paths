@@ -7,8 +7,8 @@ minutes_to_complete: 45
 who_is_this_for: This Learning Path is dedicated to developers interested in learning how to deploy applications to the Azure Kubernetes Cluster powered by arm64-based virtual machines.
 
 learning_objectives: 
-    - Create a Kubernetes cluster using the Azure Kubernetes Service.
-    - Deploy a containerized application to the Azure Kubernetes Service.
+    - Create a Kubernetes cluster using the Azure Kubernetes Service (AKS).
+    - Deploy a containerized application to AKS.
 
 prerequisites:
     - An [Azure subscription](https://azure.microsoft.com/en-us/free/)
@@ -29,7 +29,7 @@ generated_summary_faq:
   faq_generated_at: '2026-09-10T22:00:19Z'
   faq_source_hash: 2b3da4a3eff7a7be18e2f18313488149430c85ecc943486e92668ce8a5e59a5e
   summary: >-
-    You'll create an Azure Kubernetes Service cluster with Arm64-based nodes, connect it to Azure Container Registry, and deploy an application with Kubernetes manifests. Then, you'll retrieve credentials, use `kubectl` to manage the cluster, and expose the workload with a service. You can create the cluster manually or use Terraform.
+    You'll create an AKS cluster with Arm64-based nodes, connect it to Azure Container Registry, and deploy an application with Kubernetes manifests. Then, you'll retrieve credentials, use `kubectl` to manage the cluster, and expose the workload with a service. You can create the cluster manually or use Terraform.
   faqs:
   - question: How do I select an arm64 node size for the AKS cluster?
     answer: >-

@@ -4,10 +4,10 @@ description: Learn how to build scalable machine learning workflow pipelines on 
 
 minutes_to_complete: 30
 
-who_is_this_for: This is an introductory topic for developers, data engineers, and ML engineers who want to build scalable machine learning workflow pipelines on Arm64-based Google Cloud C4A Axion processors using Flyte workflow orchestration and gRPC-based microservices.
+who_is_this_for: This is an introductory topic for developers, data engineers, and ML engineers who want to build scalable machine learning workflow pipelines on Arm64-based Google Cloud C4A virtual machines (VMs) using Flyte workflow orchestration and gRPC-based microservices.
 
 learning_objectives:
- - Deploy Flyte workflow pipelines on Google Cloud C4A Axion processors.
+ - Deploy Flyte workflow pipelines on Google Cloud C4A VMs powered by Axion processors.
  - Build distributed machine learning pipelines using Flyte tasks.
  - Implement gRPC-based services for feature engineering.
  - Integrate Flyte workflows with distributed services.
@@ -33,16 +33,15 @@ generated_summary_faq:
   faq_generated_at: '2026-09-10T21:58:11Z'
   faq_source_hash: 7d3f9f50ba7e0a990fc02e539bbe1c94af2ffaa319ea4da0fd0ed0f028b17a6e
   summary: >-
-    You'll build a machine learning pipeline on Google Cloud C4A using Flyte and a gRPC feature-engineering service. First, you'll prepare an Arm64 environment, install the required components, and connect the service to Flyte tasks. The workflow loads and preprocesses data, generates features, trains a model, and evaluates your result on the Axion instance.
+    You'll build a machine learning pipeline on Google Cloud C4A VMs using Flyte and a gRPC feature-engineering service. First, you'll prepare an Arm64 environment, install the required components, and connect the service to Flyte tasks. The workflow loads and preprocesses data, generates features, trains a model, and evaluates your result on the Axion instance.
   faqs:
-  - question: Which Google Cloud instance type should I create for this tutorial?
+  - question: Which Google Cloud instance type should I create?
     answer: >-
-      Use the C4A instance family and select `c4a-standard-4` (4 vCPUs, 16 GB memory). This virtual machine hosts
-      the Flyte ML workflow and the gRPC applications.
+      Use the C4A instance family and select `c4a-standard-4` (4 vCPUs, 16 GB memory).
   - question: Which operating system image should I choose for the VM?
     answer: >-
       Use a SUSE Linux Enterprise Server (SLES) arm64 image to prepare the development environment.
-  - question: How do I know the gRPC feature engineering service is integrated correctly with
+  - question: How do I know that the gRPC feature engineering service is integrated correctly with
       the workflow?
     answer: >-
       During execution, the workflow’s feature generation step calls the gRPC service and passes
@@ -50,7 +49,7 @@ generated_summary_faq:
       the dependent step won't complete.
   - question: Is this environment single-node or multi-node, and where do components run?
     answer: >-
-      The development environment uses a single-node setup on the Axion C4A virtual machine. The gRPC feature
+      The development environment uses a single-node setup on the Axion C4A VM. The gRPC feature
       engineering service runs as an external microservice that the Flyte workflow invokes.
   - question: How do I start the gRPC feature service before running the workflow?
     answer: >-

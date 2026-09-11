@@ -35,8 +35,8 @@ generated_summary_faq:
   faqs:
   - question: Which folder should I open in Visual Studio Code to work on the project?
     answer: >-
-      Open the `azure-aci` directory created earlier and run `code .` from that folder. This loads
-      the TypeScript project and its Pulumi files in VS Code.
+      Open the `azure-aci` directory and run `code .` from that folder. This loads
+      the TypeScript project and its Pulumi files in Visual Studio Code.
   - question: What files should I see to confirm that the Pulumi TypeScript project is set up?
     answer: >-
       You should see `Pulumi.yaml` and a Node.js layout with `package.json` and `node_modules`.
@@ -49,8 +49,7 @@ generated_summary_faq:
       Save the file before running the deployment.
   - question: How do I know that the deployment worked?
     answer: >-
-      After Pulumi applies the changes, a new resource group named `rg-arm64-iac` and an Azure Container
-      Instance are created in your subscription. You can confirm that the deployment worked by checking the resource group
+      After Pulumi applies the changes, a new resource group named `rg-arm64-iac` and a container instance are created in your subscription. You can confirm that the deployment worked by checking the resource group
       and container instance in the Azure Portal.
   - question: Do I need to build or push a Docker image?
     answer: >-

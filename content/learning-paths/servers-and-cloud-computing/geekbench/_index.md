@@ -45,10 +45,10 @@ generated_summary_faq:
     answer: >-
       Note the single-core and multi-core scores together with the system or instance that you tested.
       Keep the scores for each system in the same format so you can compare them directly.
-  - question: Should I focus on the single-core or multi-core score when choosing hardware?
+  - question: How do I verify that a Geekbench run completed successfully?
     answer: >-
-      Use the score that best matches how
-      your workload uses CPU resources.
+      Open the results URL in a browser and confirm that it shows your system information, a
+      single-core score, and a multi-core score. If both scores appear, Geekbench ran successfully.
 # END generated_summary_faq
 
 author: Jason Andrews

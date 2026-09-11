@@ -4,12 +4,12 @@ description: Learn how to create and run Docker containers on Azure Container In
 
 minutes_to_complete: 30
 
-who_is_this_for: This Learning Path is an introductory topic for developers interested in creating and running a Docker container in Microsoft Azure using Azure Container Instances.
+who_is_this_for: This Learning Path is an introductory topic for developers interested in creating and running a Docker container in Microsoft Azure using Azure Container Instances (ACI).
 
 learning_objectives: 
-    - Create Azure Container Instances.
-    - Run a Docker container in Azure Container Instances.
-    - Enable Admin in Azure Container Registry, which is required when you are deploying Docker containers from the Azure Container Registry.
+    - Create a container instance on ACI.
+    - Run a Docker container in ACI.
+    - Enable Admin in Azure Container Registry (ACR), which is required when you're deploying Docker containers from the ACR.
 
 prerequisites:
     - An [Azure subscription](https://azure.microsoft.com/en-us/free/)
@@ -30,7 +30,7 @@ generated_summary_faq:
   faq_generated_at: '2026-09-10T21:59:50Z'
   faq_source_hash: 64dda5e172cd25a25cb8b75a22d2472eab2e99ab9ac646617832d9ff91bc9296
   summary: >-
-    You'll create an instance in Azure Container Instances (ACI), run a sample ASP.NET container, and verify connectivity on port `8080`. Then, you'll inspect the public IP, use Azure Cloud Shell to check the container registry, and enable the ACR Admin account required for registry-based deployment. 
+    You'll create an instance in ACI, run a sample ASP.NET container, and verify connectivity on port `8080`. Then, you'll inspect the public IP, use Azure Cloud Shell to check the container registry, and enable the ACR Admin account required for registry-based deployment. 
   faqs:
   - question: Which container image should I use to create the first instance?
     answer: >-
@@ -44,7 +44,7 @@ generated_summary_faq:
     answer: >-
       Confirm that the container instance has finished provisioning and is running. Verify that you're
       using the correct Public IP and port 8080.
-  - question: How do I confirm that my Azure Container Registry is ready for deployment?
+  - question: How do I confirm that my registry is ready for deployment?
     answer: >-
       In Azure Cloud Shell, run `az acr list -o table` and check the `ADMIN ENABLED` column. If it's not enabled, turn on the admin account in the registry settings before deploying to ACI.
   - question: Can I deploy an arm64 container image to ACI?

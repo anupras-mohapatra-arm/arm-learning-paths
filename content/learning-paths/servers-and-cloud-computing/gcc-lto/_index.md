@@ -7,7 +7,7 @@ minutes_to_complete: 15
 who_is_this_for: This is an introductory topic for developers who want to improve application performance using link-time optimization (LTO) with the GCC toolchain.
 
 learning_objectives:
-    - Understand how link-time optimization (LTO) works and when to apply it.
+    - Understand how LTO works and when to apply it.
     - Enable and configure LTO with GCC compiler flags.
     - Evaluate the performance and code size trade-offs of LTO.
 
@@ -30,7 +30,7 @@ generated_summary_faq:
   faq_generated_at: '2026-09-10T22:02:58Z'
   faq_source_hash: f1d6655e9ac403bcb0de9db2d620919fe977cb84fb70df3dd41c07dd6833c946
   summary: >-
-    You'll explore LTO with GCC on Arm Linux systems. First, you'll enable LTO with the `-flto` flag during compilation and linking, then inspect how GCC performs whole-program optimization. You'll compare runtime and binary size before and after LTO, using SPEC CPU2017 integer rate as a reference without assuming a particular performance gain.
+    You'll explore LTO with GCC on Arm Linux systems. First, you'll enable LTO with the `-flto` flag during compilation and linking, then inspect how GCC performs whole-program optimization. You'll compare runtime and binary size before and after LTO, using SPEC CPU2017 integer rate as a reference.
   faqs:
   - question: Do I need to pass -flto at both compile and link time?
     answer: >-
@@ -50,7 +50,7 @@ generated_summary_faq:
       any step, the link won't perform whole‑program optimization.
   - question: How should I evaluate the impact of LTO on my application?
     answer: >-
-      Compare runtime and binary size before and after enabling `-flto`. The path references SPEC
+      Compare runtime and binary size before and after enabling `-flto`. Refer to the SPEC
       CPU2017 integer rate as an example framework to understand potential performance changes.
 # END generated_summary_faq
 

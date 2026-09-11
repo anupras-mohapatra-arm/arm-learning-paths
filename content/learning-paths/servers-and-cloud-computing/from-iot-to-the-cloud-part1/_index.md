@@ -4,10 +4,10 @@ description: Learn how to create an Arm64 Azure VM, install .NET SDK, containeri
 
 minutes_to_complete: 30
 
-who_is_this_for: This learning path is for software developers interested in learning how to deploy .NET applications to Microsoft Azure using Arm64-powered Virtual Machines. You will also learn how to containerize .NET applications, and push Docker images to the Azure Container Registry.
+who_is_this_for: This Learning Path is for software developers interested in learning how to deploy .NET applications to Microsoft Azure using Arm64-powered virtual machines (VMs). You'll also learn how to containerize .NET applications, and push Docker images to the Azure Container Registry.
 
 learning_objectives: 
-    - Create a virtual machine (VM) in Microsoft Azure.
+    - Create a VM in Microsoft Azure.
     - Connect to the VM to install app dependencies, including SDK.
     - Create and run the .NET application.
     - Configure the network security group of the VM to expose the application over the Internet.
@@ -40,12 +40,10 @@ generated_summary_faq:
   faqs:
   - question: How do I connect to the VM without installing an SSH client?
     answer: >-
-      Use Azure Cloud Shell from the Azure Portal. SSH to the VM using its public IP address,
-      not the example IP shown in the tutorial.
+      Use Azure Cloud Shell from the Azure Portal. SSH to the VM using its public IP address.
   - question: After running the .NET SDK install script, where is the SDK installed?
     answer: >-
-      The script installs .NET SDK 7 under the .dotnet folder in your home directory on the VM.
-      Continue with the build and run steps from that environment.
+      The script installs .NET SDK 7 under the `.dotnet` folder in your home directory on the VM.
   - question: Which repository should I clone for the sample application?
     answer: >-
       Clone the People.WebApp repository from [GitHub](https://github.com/dawidborycki/People.WebApp.git)
