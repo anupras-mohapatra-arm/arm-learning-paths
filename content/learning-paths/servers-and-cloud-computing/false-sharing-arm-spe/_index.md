@@ -36,8 +36,7 @@ generated_summary_faq:
   - question: How do I confirm that my Arm-based instance supports Arm SPE before collecting data?
     answer: >-
       Check that both the hardware and the kernel support Arm SPE and verify that Linux `perf` can
-      access the relevant events. The setup section shows how to validate SPE availability and
-      confirm `perf` can read the counters.
+      access the relevant events. Run `sudo modprobe arm_spe_pmu` to confirm if the SPE kernel module is loaded. Run `ls /sys/bus/event_source/devices/ | grep arm_spe` to check if SPE is included in the kernel. 
   - question: Which build should I profile first with Perf C2C to observe false sharing?
     answer: >-
       Start with the unaligned version of the example to expose false sharing. Then, profile the
