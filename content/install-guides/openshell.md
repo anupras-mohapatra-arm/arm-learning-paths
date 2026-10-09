@@ -178,7 +178,7 @@ mkdir -p ~/.config/openshell
 
 Open `~/.config/openshell/gateway.toml` in a text editor. If the file exists, change or add `compute_driver = "vm"` under its existing `[openshell.gateway]` table, preserving all other settings. Don't add a duplicate table or key.
 
- If the file doesn't exist, create it with the following contents:
+If the file doesn't exist, create it with the following contents:
 
 ```toml
 [openshell]
@@ -200,7 +200,7 @@ If preflight reports an error, correct it before continuing. Restart the gateway
 systemctl --user restart openshell-gateway
 ```
 
-Confirm the gateway is still connected:
+Confirm that the gateway is still connected:
 
 ```bash
 openshell status
@@ -234,7 +234,7 @@ systemctl --user restart openshell-gateway
 
 With OpenShell installed and the gateway running, you can create and manage a sandbox using the CLI to verify that the installation was successful.
 
-### Check the sandbox kernel
+### Create a sandbox
 
 Create a test sandbox using the default workload image (`nvcr.io/nvidia/base/ubuntu:24.04`):
 
@@ -257,6 +257,7 @@ Alternatively, you can use a different image by passing it with `--from`:
 ```bash
 openshell sandbox create --name verify-test --from ubuntu:26.04 --detach
 ```
+### Check the sandbox kernel
 
 Check the kernel version and architecture inside it:
 
@@ -309,28 +310,48 @@ aarch64
 
 This reports the sandbox kernel's architecture as `aarch64`.
 
+### Connect to a sandbox
+
+Open an interactive shell session inside a sandbox:
+
+```bash
+openshell sandbox connect verify-test
+```
+
+To exit the session, enter **Ctrl + C**. 
+
 ### Test sandbox boundaries
 
-OpenShell applies a restrictive default policy when no global policy is active, the sandbox has no saved policy, and its image contains no policy. Creating a sandbox without `--policy` does not guarantee that this default is selected. The examples below assume the restrictive default is active and no providers add network access. See [Default Policy and Baseline Paths](https://docs.nvidia.com/openshell/how-it-works/policies/default-policy) for policy selection and runtime additions.
+OpenShell applies a restrictive default policy when the following is true:
+
+- No global policy is active
+- The sandbox has no saved policy
+- Its image contains no policy
+
+Creating a sandbox without `--policy` doesn't guarantee that this default is selected. The following examples assume that the restrictive default is active and no providers add network access. For policy selection and runtime additions, see [Default Policy and Baseline Paths](https://docs.nvidia.com/openshell/how-it-works/policies/default-policy) in the NVIDIA OpenShell documentation.
 
 #### Filesystem isolation
 
-The restrictive default grants read-only access to `/bin`, `/usr`, `/lib`, `/proc`, `/dev/urandom`, `/etc`, and `/var/log`. It grants read-write access to the sandbox working directory, `/tmp`, and `/dev/null`. These paths refer to the sandbox filesystem. Host files are not exposed by default; explicitly configured mounts can change that boundary.
+The restrictive default grants read-only access to the following folders:
 
-Create a sandbox to test the boundary:
+- `/bin`
+- `/usr`
+- `/lib`
+- `/proc`
+- `/dev/urandom`
+- `/etc`
+- `/var/log`
 
-```bash
-openshell sandbox create --name boundary-test --detach
-```
+It grants read-write access to the sandbox working directory, `/tmp`, and `/dev/null`. These paths refer to the sandbox filesystem. Host files aren't exposed by default. You can change that boundary with explicitly configured mounts.
 
-Inspect the base and effective policies before testing the boundary:
+Inspect the base and effective policies of the sandbox before testing the boundary:
 
 ```bash
 openshell policy get verify-test --base
 openshell policy get verify-test --full
 ```
 
-Confirm that the filesystem access matches the restrictive default and that the effective policy has no network rules. These views omit some runtime-only filesystem grants, such as sandbox CA certificates. If another policy is active, the results below can differ.
+Confirm that the filesystem access matches the restrictive default and that the effective policy has no network rules. These views omit some runtime-only filesystem grants, such as sandbox CA certificates. If another policy is active, the following results can differ.
 
 Try to list the sandbox's `/root/.ssh` directory:
 
@@ -368,7 +389,7 @@ The output is similar to:
 touch: cannot touch '/etc/evil': Permission denied
 ```
 
-The `/tmp` directory is writable by design, so agents have a scratch space:
+The `/tmp` directory is writable by design, so that agents have a scratch space:
 
 ```bash
 openshell sandbox exec -n verify-test -- touch /tmp/ok && echo "write succeeded"
@@ -382,7 +403,9 @@ write succeeded
 
 #### Network isolation
 
-The restrictive default defines no network rules, so outbound connections are denied. Image policies, global policies, and attached providers can change the effective network access. With no network rules in the effective policy, test a direct outbound connection:
+The restrictive default defines no network rules, so outbound connections are denied. Image policies, global policies, and attached providers can change the effective network access. 
+
+With no network rules in the effective policy, test a direct outbound connection:
 
 ```bash
 openshell sandbox exec -n verify-test -- bash -c 'echo > /dev/tcp/93.184.216.34/80'
@@ -395,23 +418,20 @@ bash: connect: Permission denied
 bash: line 1: /dev/tcp/93.184.216.34/80: Permission denied
 ```
 
-To grant an agent access to specific network destinations, create a declarative YAML policy and pass it at sandbox creation with `--policy`. See [Sandbox Policies](https://docs.nvidia.com/openshell/how-it-works/policies/overview) in the NVIDIA OpenShell documentation.
+To grant an agent access to specific network destinations, create a declarative YAML policy and pass it at sandbox creation with `--policy`. For more information, see [Sandbox Policies](https://docs.nvidia.com/openshell/how-it-works/policies/overview) in the NVIDIA OpenShell documentation.
 
-OpenShell enforces isolation through multiple layers: Landlock LSM adds kernel-enforced filesystem restrictions to the sandboxed processes, network policy mediates each outbound TCP connection at the supervisor level, and credential providers mean the agent process never receives real API key values. Landlock provides an additional containment layer, but it relies on the enforcing kernel and cannot guarantee protection against an exploit that compromises that kernel. For a full walkthrough of policy authoring, egress filtering, and multi-agent deployment on Arm, see the NVIDIA OpenShell Learning Path on Arm.
+OpenShell enforces isolation through multiple layers:
 
-### Connect to a sandbox
+- Landlock LSM adds kernel-enforced filesystem restrictions to the sandboxed processes
+- Network policy mediates each outbound TCP connection at the supervisor level
+- Credential providers mean the agent process never receives real API key values
 
-Open an interactive shell session inside a sandbox:
+Landlock provides an additional containment layer, but it relies on the enforcing kernel. It can't guarantee protection against an exploit that compromises that kernel. 
 
-```bash
-openshell sandbox connect verify-test
-```
-
-To exit the session, enter **Ctrl + C**. 
 
 ## Delete the sandbox
 
-Delete the sandbox by name:
+After verifying that openshell installed successfully and works as expected, delete the sandbox:
 
 ```bash
 openshell sandbox delete verify-test
@@ -425,4 +445,4 @@ The output is similar to:
 
 ## Next steps
 
-You're now ready to use NVIDIA OpenShell to run AI agents and untrusted code in policy-governed environments.
+You're now ready to use NVIDIA OpenShell to run AI agents and untrusted code in policy-governed environments. 
