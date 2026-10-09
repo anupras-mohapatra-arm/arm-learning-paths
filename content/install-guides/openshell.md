@@ -422,16 +422,15 @@ To grant an agent access to specific network destinations, create a declarative 
 
 OpenShell enforces isolation through multiple layers:
 
-- Landlock LSM adds kernel-enforced filesystem restrictions to the sandboxed processes
-- Network policy mediates each outbound TCP connection at the supervisor level
-- Credential providers mean the agent process never receives real API key values
+- Landlock LSM adds kernel-enforced filesystem restrictions to the sandboxed processes.
+- Network policy mediates each outbound TCP connection at the supervisor level.
+- Credential providers mean that the agent process never receives real API key values.
 
 Landlock provides an additional containment layer, but it relies on the enforcing kernel. It can't guarantee protection against an exploit that compromises that kernel. 
 
-
 ## Delete the sandbox
 
-After verifying that openshell installed successfully and works as expected, delete the sandbox:
+After verifying that OpenShell installed successfully and works as expected, delete the sandbox:
 
 ```bash
 openshell sandbox delete verify-test
