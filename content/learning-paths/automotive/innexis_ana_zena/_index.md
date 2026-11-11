@@ -1,6 +1,10 @@
 ---
 title: Create an Arm Zena CSS virtual platform on Siemens Innexis ANA
 description: With Siemens Innexis ANA 2026.2, start a Zena CSS virtual platform, boot EWAOL Linux, connect to the guest, and exchange a file.
+
+draft: true
+cascade:
+    draft: true
     
 minutes_to_complete: 60
 

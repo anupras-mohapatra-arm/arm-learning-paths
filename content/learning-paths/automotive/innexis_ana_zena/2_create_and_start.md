@@ -31,7 +31,7 @@ If the project workflow offers a different Zena or EWAOL variant, record its ful
 
 Set up the folder for file-sharing while the virtual platform is stopped. ANA disables **Host Filesystem - Access Path** and **Browse** while a virtual platform is running.
 
-1. In the Web IDE **Explorer**, create a folder in your new project for the shared files, such as **test_folder**. The **New Folder** control is in the **WORKSPACE** section of Explorer.
+1. In the Web IDE **Explorer**, create a folder in your new project for the shared files, such as **test_folder**. The **New Folder** control is in the **WORKSPACE** section.
 2. Open **Lab Manager**, select the new virtual platform, and expand **Software > Host Access**.
 3. Next to **Host Filesystem - Access Path**, choose **Browse**. The directory selector shows the ANA project workspace. Select the shared folder in your project.
 4. Set **Host Filesystem - Guest Mount ID** to **share** and choose **Save**.
@@ -75,6 +75,6 @@ Also note any memory setting that you changed.
 
 ## What you've accomplished and what's next
 
-You've started a new Zena CSS virtual platform in Innexis ANA. You're ready to continue when you can open the console for the same project that you started.
+You've started a new Zena CSS virtual platform in Innexis ANA. 
 
 Next, you'll follow the boot sequence across the ANA consoles and inspect the Linux guest.

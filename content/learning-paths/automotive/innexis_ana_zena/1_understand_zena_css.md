@@ -17,7 +17,7 @@ Zena CSS has more than one processing area. You'll inspect the following console
 | Console in ANA | What to look for |
 | --- | --- |
 | Runtime Security Engine (RSE) | Firmware messages associated with the Root of Security for the system. |
-| Safety Island | SCP firmware messages from the Safety Island. |
+| Safety Island | System Control Processor (SCP) firmware messages from the Safety Island. |
 | Primary Compute Secure | Secure-world and boot-stage messages for the primary-compute system. |
 | Primary Compute | EWAOL Linux boot messages and the login prompt. |
 
@@ -33,6 +33,6 @@ Before continuing, locate **Arm-Zena-CSS** and its **EWAOL Software Stack** in y
 
 ## What you've learned and what's next
 
-You've learned about the Innexis ANA consoles that you'll inspect and the Zena CSS boot flow.
+You've learned about the he Zena CSS boot flow and the Innexis ANA consoles that you'll inspect.
 
 Next, you'll create and start a Zena CSS virtual platform.

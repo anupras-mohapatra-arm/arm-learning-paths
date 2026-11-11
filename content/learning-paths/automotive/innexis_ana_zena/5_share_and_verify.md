@@ -7,22 +7,21 @@ layout: learningpathall
 ---
 ## Prepare a known test file
 
-Before starting the VP, you configured **Lab Manager > Software > Host Access** and set **Host Filesystem - Guest Mount ID** to **share** in the previous step. The **Access Path** points to a folder in the ANA project workspace. ANA disables **Browse** while the VP is running, so set Host Access before the first start.
+Before starting the virtual platform, you configured **Lab Manager > Software > Host Access** and set **Host Filesystem - Guest Mount ID** to **share**. The **Access Path** points to a folder in the Architecture Native Acceleration (ANA) project workspace. ANA disables **Browse** while the virtual platform is running, so set **Host Access** before the first start.
 
-This exercise uses that 9p share to exchange a small file between the ANA workspace and the EWAOL Linux guest. If you skipped Host Access, stop the VP, complete the configuration in the previous step, and start it again before mounting the share.
+You'll use that 9p share to exchange a small file between the ANA workspace and the Linux guest. 
 
-
-On your local computer, create a text file named **lp1-check.txt** containing this single line:
+On your local computer, create a text file named `lp1-check.txt` containing the following line:
 
 ```text
 ANA Zena LP1 file exchange
 ```
 
-In the Web IDE **Explorer**, right-click the folder selected as **Access Path**, choose **Upload Files...**, and select **lp1-check.txt** from your local computer. Confirm that the file appears in that ANA workspace folder. The Host Access folder selector browses the ANA workspace; it does not browse your local computer.
+In the Web IDE Explorer, right-click the folder selected as **Access Path**, choose **Upload Files...**, and select **lp1-check.txt** from your local computer. Confirm that the file appears in that ANA workspace folder. The Host Access folder selector browses the ANA workspace, not your local computer.
 
 ## Mount the share in Linux
 
-Run these commands in the **primary-compute Linux console**:
+Run the following commands in the **primary-compute** Linux console:
 
 ```bash
 mkdir -p /mnt/ana-share
@@ -31,15 +30,19 @@ mount | grep ' /mnt/ana-share '
 cat /mnt/ana-share/lp1-check.txt
 ```
 
-The `cat` command printed `ANA Zena LP1 file exchange` in the tested Zena guest.
+The expected output of the `cat` command is `ANA Zena LP1 file exchange`.
 
 {{% notice Note %}}
-In the tested ANA 2026.2 environment, `ls -l /mnt/ana-share` displayed the filenames but returned `Protocol error` and exit status `2`. The directory listing failed, although the known file remained readable. Verify the file with `cat` and the exact-content check below.
-{{% /notice %}}
+In the ANA 2026.2 environment that was used to test the Learning Path, `ls -l /mnt/ana-share` displayed the filenames. However, the command also returned `Protocol error` and exit status `2`.
 
 ```output
 ls: reading directory '/mnt/ana-share': Protocol error
 ```
+
+The directory listing failed, although the known file remained readable. Verify the file with `cat` and check its exact contents.
+{{% /notice %}}
+
+
 
 Check the exact contents:
 
