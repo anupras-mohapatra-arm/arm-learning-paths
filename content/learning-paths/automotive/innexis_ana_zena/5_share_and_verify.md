@@ -5,14 +5,12 @@ weight: 6
 ### FIXED, DO NOT MODIFY
 layout: learningpathall
 ---
-
-## Share a file with the Zena CSS guest
+## Prepare a known test file
 
 Before starting the VP, you configured **Lab Manager > Software > Host Access** and set **Host Filesystem - Guest Mount ID** to **share** in the previous step. The **Access Path** points to a folder in the ANA project workspace. ANA disables **Browse** while the VP is running, so set Host Access before the first start.
 
 This exercise uses that 9p share to exchange a small file between the ANA workspace and the EWAOL Linux guest. If you skipped Host Access, stop the VP, complete the configuration in the previous step, and start it again before mounting the share.
 
-## Prepare a known test file
 
 On your local computer, create a text file named **lp1-check.txt** containing this single line:
 
@@ -74,6 +72,8 @@ Before stopping, save the boot marker, guest environment output, SSH check, file
 
 For a persistence check, start the **same project** again. In the tested run, the shared folder and files remained in the ANA workspace, but Linux needed the 9p mount command again after the VP restarted. Remount the share and read **lp1-check.txt** to confirm it is still available. Stop the virtual platform again when you finish this check.
 
-## What you have accomplished
+## What you've accomplished and what's next
 
 You have completed this Learning Path when you have a recorded Linux boot, guest environment details, a successful SSH connection, a verified file round trip, and a stopped virtual platform. These results establish a boot and guest-access baseline on this virtual platform. They do not measure physical-silicon performance or validate its security properties.
+
+You can use the saved boot, connection, and file checks as a baseline when you return to this project for later work.

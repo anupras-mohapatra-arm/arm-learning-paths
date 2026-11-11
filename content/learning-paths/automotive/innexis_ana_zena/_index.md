@@ -1,29 +1,25 @@
 ---
-title: Get Started with Arm Zena CSS on Siemens Innexis ANA
+title: Create an Arm Zena CSS virtual platform on Siemens Innexis ANA
 description: With Siemens Innexis ANA 2026.2, start a Zena CSS virtual platform, boot EWAOL Linux, connect to the guest, and exchange a file.
-
-draft: true
-cascade:
-    draft: true
     
 minutes_to_complete: 60
 
-who_is_this_for: Automotive and embedded Linux developers with access to an Innexis ANA chamber.
+who_is_this_for: Automotive and embedded Linux developers with access to an Innexis Architecture Native Acceleration (ANA) chamber.
 
 learning_objectives:
     - Create and start an Arm Zena CSS virtual platform in Innexis ANA.
     - Identify the boot consoles, verify EWAOL Linux boot, and inspect the guest environment.
-    - Connect to the Linux guest through ANA's authorized SSH tunnel.
+    - Connect to the Linux guest through the ANA authorized SSH tunnel.
     - Exchange a test file with the Linux guest and check its contents. 
 prerequisites:
-    - Access to an operating Siemens Innexis ANA chamber with the Arm-Zena-CSS vSoC and its EWAOL software stack.
-    - Permission to use the chamber and its supplied software assets.
-    - Basic familiarity with the Linux command line.
-    - A local SSH client and a public key that you can authorize for the selected virtual platform.
+    - Access to an operating Siemens Innexis ANA chamber with the Arm-Zena-CSS vSoC and its EWAOL software stack
+    - Permission to use the chamber and its supplied software assets
+    - Basic familiarity with the Linux command line
+    - A local SSH client and a public key that you can authorize for the selected virtual platform
 
 author: Odin Shen
 
-generate_summary_faq: false
+generate_summary_faq: true
 rerun_summary: false
 rerun_faqs: false
 

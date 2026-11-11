@@ -6,11 +6,9 @@ weight: 5
 layout: learningpathall
 ---
 
-## Connect to the Zena CSS Linux guest
+## Check the mapping and guest listener
 
 Find this VP's port mapping, authorize an SSH tunnel, and connect through the external port mapped to guest port `22`. The port and target address belong to the selected VP. Get them from ANA each time rather than copying values from another project.
-
-## Check the mapping and guest listener
 
 In **Lab Manager > Networking > Port Mapping** (or **Device Access Ports**), select the Zena VP you started.
 
@@ -81,6 +79,6 @@ The verified SSH shell returned `aarch64` for `uname -m`; `hostname` returned `a
 
 If the connection fails before SSH authentication, check the terminal running the ANA tunnel. In this run, it initially reported `channel ... open failed: connect failed: No route to host`. The SSH connection succeeded after the mapped guest IP was added, without restarting the tunnel. If the error persists after confirming the guest address and SSH listener, give the chamber administrator the VP name, current mapping, and redacted tunnel error so they can check the relay route.
 
-## What you have learned
+## What you've accomplished and what's next
 
-You can reach the selected virtual platform from your development computer using its current ANA port mapping. Keep the authorized tunnel open if you use it to copy files in a later exercise.
+You can reach the selected virtual platform from your development computer using its current ANA port mapping. Keep the authorized tunnel open for the next task, where you'll exchange a file with the Linux guest.
