@@ -55,7 +55,7 @@ generated_summary_faq:
     answer: >-
       You can use the
       [Arm Neoverse N2 PMU guide](https://developer.arm.com/documentation/PJDOC-466751330-590448/2-0/?lang=en)
-      to interpret the event definitions that are shown in the Learning Path.
+      to interpret the event definitions.
 # END generated_summary_faq
 
 author: Johanna Skinnider
