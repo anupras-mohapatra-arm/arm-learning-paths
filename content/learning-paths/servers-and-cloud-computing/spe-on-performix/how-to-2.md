@@ -7,7 +7,7 @@ layout: learningpathall
 ---
 
 
-### Check whether the OS kernel is built with SPE {#check-kernel-spe}
+## Check whether the OS kernel is built with SPE {#check-kernel-spe}
 
 {{% notice Note %}}
 The steps in this section use an AWS Graviton-based Amazon EC2 `c7g.metal` instance running Ubuntu 24.04 LTS. Commands and outputs on other platforms or distributions might differ slightly.
@@ -40,7 +40,7 @@ The possible outputs for a kernel are `y`, `m`, or `n`. The output determines yo
 
 If the command produces no output, the kernel config file might not be present on your system. In this case, [use another operating system or kernel](/learning-paths/servers-and-cloud-computing/spe-on-performix/how-to-4/#try-another-os).
 
-### Confirm that the kernel module is available {#check-kernel-module}
+## Confirm that the kernel module is available {#check-kernel-module}
 
 If your OS kernel includes SPE support as a loadable module, you need to confirm that the module file is present on the filesystem before attempting to load it.
 
@@ -62,7 +62,7 @@ srcversion:     3B6FCB5AD9B37B8BB9FF4A9
 ...
 ```
 
-### Load the kernel module {#load-kernel-module}
+## Load the kernel module {#load-kernel-module}
 
 If a loadable module is available, load the module and confirm it is active:
 
@@ -79,7 +79,7 @@ arm_spe_pmu            24576  0
 
 The module is now loaded. Next, [verify SPE is active with Sysreport](/learning-paths/servers-and-cloud-computing/spe-on-performix/how-to-3/#verify-spe-active).
 
-### What you've accomplished and what's next
+## What you've accomplished and what's next
 
 You've now checked whether your kernel supports Arm SPE, verified whether the `arm_spe_pmu` module file is available, and loaded the module when applicable.
 

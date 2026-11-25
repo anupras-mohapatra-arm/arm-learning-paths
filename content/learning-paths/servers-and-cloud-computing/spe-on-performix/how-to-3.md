@@ -6,7 +6,7 @@ weight: 4
 layout: learningpathall
 ---
 
-### Install Linux kernel extra modules {#install-extra-modules}
+## Install Linux kernel extra modules {#install-extra-modules}
 
 To keep kernel images smaller and tuned for different platforms, many distributions ship extra kernel modules in a separate package. If your system's kernel doesn't include a module file (`arm_spe_pmu not present for this kernel`), follow the steps to install and load the module before verifying. 
 
@@ -55,7 +55,7 @@ description:    Perf driver for the ARMv8.2 Statistical Profiling Extension
 ...
 ```
 
-### Load the kernel module {#load-kernel-module}
+## Load the kernel module {#load-kernel-module}
 
 If you installed the extra modules package, load the module now:
 
@@ -89,7 +89,7 @@ sudo dmesg | grep "arm_spe_pmu"
 
 {{% /notice %}}
 
-### Verify SPE is active with Sysreport {#verify-spe-active}
+## Verify SPE is active with Sysreport {#verify-spe-active}
 
 Whether the driver is built into your kernel or loaded as a module, run Sysreport now to confirm SPE is active.
 
@@ -111,7 +111,7 @@ Return to Performix. The `Memory Access` recipe should now show `All checks pass
 
 If `perf sampling` still shows `None` and your system is Neoverse V1, follow the steps in the next section to adjust Kernel Page Table Isolation (KPTI). For all other systems, see [Use another operating system or kernel](/learning-paths/servers-and-cloud-computing/spe-on-performix/how-to-4/#try-another-os) for alternative approaches.
 
-#### Adjust KPTI on Neoverse V1-based systems
+### Adjust KPTI on Neoverse V1-based systems
 
 On some Neoverse V1 systems (for example AWS Graviton3), SPE buffer mapping can fail when KPTI is enabled. This issue has been observed on Neoverse V1 and isn't known to affect other Neoverse cores. Use the `CPU types:` line in `sysreport.py` to confirm whether your instance is Neoverse V1.
 
@@ -144,4 +144,4 @@ sudo reboot
 
 You've now installed and loaded the `arm_spe_pmu` kernel module when needed, then verified that Arm SPE is active with Sysreport. You also learned a targeted workaround for Neoverse V1 systems where KPTI can block SPE buffer mapping.
 
-Next, if SPE is now active, run the Memory Access recipe to begin profiling memory access patterns on your Arm Neoverse system. If SPE is still unavailable, continue to the next section for alternative operating system and kernel approaches.
+Next, if SPE is now active, run the Memory Access recipe to begin profiling memory access patterns on your Arm Neoverse system. If SPE is still unavailable, [consider alternative operating system and kernel approaches](/learning-paths/servers-and-cloud-computing/spe-on-performix/how-to-4/).

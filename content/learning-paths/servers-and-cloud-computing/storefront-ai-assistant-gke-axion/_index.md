@@ -36,10 +36,9 @@ generated_summary_faq:
     You'll deploy the Online Boutique storefront on Google Kubernetes
     Engine using Arm-based Axion nodes, validate a baseline on N4A, and add a gRPC-driven AI shopping
     assistant. You'll build and push a single `linux/arm64` container image to Artifact Registry, then
-    use Kustomize overlays to run the assistant on N4A before moving only that tier to C4A. After
-    reviewing the assistant’s source code and runtime dependencies, you'll confirm scheduling on the intended
-    node pool and capture benchmark summaries to compare the same assistant workload across N4A
-    and C4A. You'll finish with a mixed-placement deployment where the steady storefront remains
+    use Kustomize overlays to run the assistant on N4A. After
+    reviewing the assistant source code and runtime dependencies, you'll confirm scheduling on the intended
+    node pool and capture benchmark summaries. You'll finish with a mixed-placement deployment where the steady storefront remains
     on N4A and the burstier assistant runs on the selected pool.
   faqs:
   - question: How do I verify the cluster has both N4A and C4A node pools before I start?

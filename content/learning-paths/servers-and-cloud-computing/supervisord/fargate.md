@@ -13,7 +13,7 @@ There are many ways to run containers using cloud services which demonstrate thi
 
 The instructions below are similar to [How to use AWS Graviton processors on AWS Fargate with Copilot](/learning-paths/servers-and-cloud-computing/aws-copilot/). You can use the AWS Copilot CLI to launch a container and then SSH to it using Remote.It.
 
-# Launch the container in AWS using AWS Copilot CLI
+## Launch the container in AWS using AWS Copilot CLI
 
 Install `copilot` using the [AWS Copilot CLI install guide](/install-guides/aws-copilot/).
 
@@ -41,7 +41,7 @@ There are 2 issues with this container:
 - It is using the `amd64` architecture 
 - No Remote.It registration code was provided so you cannot connect with SSH
 
-# Update the container
+## Update the container
 
 To fix the 2 issues, edit the file `copilot/debug/manifest.yml` and add a Remote.It registration code and change the platform to `linux/arm64`.
 

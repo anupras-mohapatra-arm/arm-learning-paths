@@ -6,7 +6,7 @@ weight: 5
 layout: learningpathall
 ---
 
-### Use another operating system or kernel {#try-another-os}
+## Use another operating system or kernel {#try-another-os}
 
 Many applications spend most execution time in user space, with relatively little time in kernel mode for tasks such as file handling. Because of that, it's usually faster to try a different OS or kernel image before rebuilding your current kernel with SPE enabled. If you specifically need to rebuild your current kernel, follow the steps in [Rebuild the kernel from source with Arm SPE](#rebuild-kernel).
 
@@ -60,16 +60,16 @@ perf HW trace:    ETM
 {{< /tab >}}
 {{< /tabpane >}}
 
-### Rebuild the kernel from source with Arm SPE {#rebuild-kernel}
+## Rebuild the kernel from source with Arm SPE {#rebuild-kernel}
 
 If your current system doesn't provide a kernel with Arm SPE enabled, you can rebuild the kernel with the required configuration. This approach is more involved than switching operating systems and should be used only if necessary.
 
-#### Distribution-specific considerations
+### Distribution-specific considerations
 
 Most Linux distributions, such as Ubuntu or Debian, ship kernels with their own patches and configuration defaults. As a result, you should follow your distribution’s official kernel build guide rather than using a generic upstream process. For example, the [Ubuntu](https://wiki.ubuntu.com/Kernel/BuildYourOwnKernel) and [Debian](https://wiki.debian.org/BuildingTutorial) guides. In some environments such as cloud platforms, you might also need to build against a provider-specific kernel variant.
 
 
-#### Enable Arm SPE in the kernel configuration
+### Enable Arm SPE in the kernel configuration
 
 The key requirement is to ensure that the `CONFIG_ARM_SPE_PMU` option is enabled in the kernel `.config`.
 
@@ -97,7 +97,7 @@ make olddefconfig
 
 This resolves any new dependencies introduced by enabling `CONFIG_ARM_SPE_PMU` and sets unset options to their defaults. It's non-interactive and won't prompt you for input.
 
-#### Use the interactive configuration menu
+### Use the interactive configuration menu
 
 Alternatively, you can enable the option using the interactive terminal UI from the root of the kernel directory:
 
